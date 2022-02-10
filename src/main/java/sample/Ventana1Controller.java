@@ -21,6 +21,8 @@ import java.net.MalformedURLException;
 
 public class Ventana1Controller {
 
+    static Pokemon miPokemon;
+
     Pokemon poke1 = new Pokemon("Mew", 100, 100, "Nv 100", "src\\main\\resources\\Image\\mew.gif", "src\\main\\resources\\Image\\sex.png", "src\\main\\resources\\Image\\tic.png");
     Pokemon poke2 = new Pokemon("Gengar", 100, 100, "Nv 100", "src\\main\\resources\\Image\\gengar.gif", "src\\main\\resources\\Image\\sex.png", "src\\main\\resources\\Image\\tic.png");
     Pokemon poke3 = new Pokemon("Dragonite", 100, 100, "Nv 100", "src\\main\\resources\\Image\\dragonite.gif", "src\\main\\resources\\Image\\sex.png", "src\\main\\resources\\Image\\tic.png");
@@ -186,6 +188,7 @@ public class Ventana1Controller {
         pokemon5.setStyle("-fx-background-color:  #7D6A87");
         pokemon6.setStyle("-fx-background-color:  #7D6A87");
         b2.setDisable(false);
+        this.miPokemon=poke1;
     }
 
     public void seleccionar2() {
@@ -196,6 +199,7 @@ public class Ventana1Controller {
         pokemon5.setStyle("-fx-background-color:  #7D6A87");
         pokemon6.setStyle("-fx-background-color:  #7D6A87");
         b2.setDisable(false);
+        this.miPokemon=poke2;
     }
 
     public void seleccionar3() {
@@ -206,6 +210,7 @@ public class Ventana1Controller {
         pokemon5.setStyle("-fx-background-color:  #7D6A87");
         pokemon6.setStyle("-fx-background-color:  #7D6A87");
         b2.setDisable(false);
+        this.miPokemon=poke3;
     }
 
     public void seleccionar4() {
@@ -216,6 +221,7 @@ public class Ventana1Controller {
         pokemon5.setStyle("-fx-background-color:  #7D6A87");
         pokemon6.setStyle("-fx-background-color:  #7D6A87");
         b2.setDisable(false);
+        this.miPokemon=poke4;
     }
 
     public void seleccionar5() {
@@ -226,6 +232,7 @@ public class Ventana1Controller {
         pokemon5.setStyle("-fx-background-color:  #C3A98B");
         pokemon6.setStyle("-fx-background-color:  #7D6A87");
         b2.setDisable(false);
+        this.miPokemon=poke5;
     }
 
     public void seleccionar6() {
@@ -236,20 +243,18 @@ public class Ventana1Controller {
         pokemon5.setStyle("-fx-background-color:  #7D6A87");
         pokemon6.setStyle("-fx-background-color:  #C3A98B");
         b2.setDisable(false);
+        this.miPokemon=poke6;
     }
 
-
-    private Ventana2Controller v = null;
-    private Stage stage = null;
 
 	@FXML
 	void luchar(MouseEvent event) {
 		try {
 
 			FXMLLoader fxmlLoader = new FXMLLoader();
-			fxmlLoader.setLocation(getClass().getResource("Ventana2.fxml"));
+			fxmlLoader.setLocation(getClass().getResource("/Ventana2.fxml"));
 			Ventana2Controller ventana2Controller= fxmlLoader.getController();
-			Scene scene = new Scene(fxmlLoader.load(), 900, 550);
+			Scene scene = new Scene(fxmlLoader.load(), 621,350);
 			Stage stage = new Stage();
 			stage.setTitle("New Window");
 			stage.setScene(scene);
@@ -261,8 +266,7 @@ public class Ventana1Controller {
 		}
 	}
 
-
-    public class Pokemon {
+    public static class Pokemon {
         String nombre;
         double vidaMaxima;
         double vidaActual;
@@ -297,6 +301,47 @@ public class Ventana1Controller {
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
+
+        }
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+
+        public double getVidaMaxima() {
+            return vidaMaxima;
+        }
+
+        public void setVidaMaxima(double vidaMaxima) {
+            this.vidaMaxima = vidaMaxima;
+        }
+
+        public double getVidaActual() {
+            return vidaActual;
+        }
+
+        public void setVidaActual(double vidaActual) {
+            this.vidaActual = vidaActual;
+        }
+
+        public String getNivel() {
+            return nivel;
+        }
+
+        public void setNivel(String nivel) {
+            this.nivel = nivel;
+        }
+
+        public Image getFoto() {
+            return foto;
+        }
+
+        public void setFoto(Image foto) {
+            this.foto = foto;
         }
 
     }
